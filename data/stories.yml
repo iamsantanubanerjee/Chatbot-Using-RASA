@@ -1,0 +1,166 @@
+version: "2.0"
+
+stories:
+
+- story: complete path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search{"location":"delhi"}
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search{"cuisine":"chinese"}
+  - slot_was_set:
+    - cuisine: chinese
+  - action: ActionSearchRestaurants
+  - slot_was_set:
+    - location: delhi
+  - action: utter_goodbye
+  - action: export
+
+- story: complete path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search{"location":"delhi"}
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search{"cuisine":"North Indian"}
+  - slot_was_set:
+    - cuisine: North Indian
+  - action: ActionSearchRestaurants
+  - action: utter_goodbye
+
+- story: complete path 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search{"location":"italy"}
+  - slot_was_set:
+    - location: italy
+  - action: utter_ask_cuisine
+  - intent: restaurant_search{"cuisine":"chinese"}
+  - slot_was_set:
+    - cuisine: chinese
+  - action: ActionSearchRestaurants
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: complete path 4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search{"location":"delhi"}
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search{"cuisine":"chinese"}
+  - slot_was_set:
+    - cuisine: chinese
+  - action: ActionSearchRestaurants
+  - action: export
+
+- story: interactive story 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search{"location":"mumbai"}
+  - slot_was_set:
+    - location: mumbai
+  - action: utter_ask_cuisine
+  - intent: restaurant_search{"cuisine":"chinese"}
+  - slot_was_set:
+    - cuisine: chinese
+  - action: ActionSearchRestaurants
+  - slot_was_set:
+    - location": mumbai
+  - intent: stop
+
+- story: interactive story 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search{"location":"mumbai"}
+  - slot_was_set:
+    - location": mumbai
+  - action: utter_ask_cuisine
+  - intent: restaurant_search{"cuisine":"Italian"}
+  - slot_was_set:
+    - cuisine: Italian
+  - action: ActionSearchRestaurants
+  - slot_was_set:
+    - location: mumbai
+
+- story: interactive story 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search{"cuisine":"chinese", "location":"delhi"}
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: delhi
+  - action: ActionSearchRestaurants
+  - slot_was_set:
+    - location: delhi
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: interactive story 4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search{"cuisine":"chinese"}
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_location
+  - intent: restaurant_search{"location":"delhi"}
+  - slot_was_set:
+    - location: delhi
+  - action: ActionSearchRestaurants
+  - slot_was_set:
+    - location: delhi
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search{"cuisine":"italian", "location":"mumbai"}
+  - slot_was_set:
+    - cuisine: italian
+    - location: mumbai
+  - action: ActionSearchRestaurants
+  - slot_was_set:
+    - location: mumbai
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: location specified
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search{"location":"delhi"}
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search{"cuisine":"chinese"}
+  - slot_was_set:
+    - cuisine: chinese
+  - action: ActionSearchRestaurants
+  - intent: affirm
+  - action: utter_goodbye
+  - action: export
