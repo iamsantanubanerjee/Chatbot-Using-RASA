@@ -15,7 +15,7 @@ stories:
   - intent: restaurant_search{"cuisine":"chinese"}
   - slot_was_set:
     - cuisine: chinese
-  - action: ActionSearchRestaurants
+  - action: action_search_restaurants
   - slot_was_set:
     - location: delhi
   - action: utter_goodbye
@@ -34,7 +34,7 @@ stories:
   - intent: restaurant_search{"cuisine":"North Indian"}
   - slot_was_set:
     - cuisine: North Indian
-  - action: ActionSearchRestaurants
+  - action: action_search_restaurants
   - action: utter_goodbye
 
 - story: complete path 3
@@ -50,7 +50,7 @@ stories:
   - intent: restaurant_search{"cuisine":"chinese"}
   - slot_was_set:
     - cuisine: chinese
-  - action: ActionSearchRestaurants
+  - action: action_search_restaurants
   - intent: goodbye
   - action: utter_goodbye
 
@@ -67,7 +67,7 @@ stories:
   - intent: restaurant_search{"cuisine":"chinese"}
   - slot_was_set:
     - cuisine: chinese
-  - action: ActionSearchRestaurants
+  - action: action_search_restaurants
   - action: export
 
 - story: interactive story 1
@@ -81,7 +81,7 @@ stories:
   - intent: restaurant_search{"cuisine":"chinese"}
   - slot_was_set:
     - cuisine: chinese
-  - action: ActionSearchRestaurants
+  - action: action_search_restaurants
   - slot_was_set:
     - location": mumbai
   - intent: stop
@@ -99,7 +99,7 @@ stories:
   - intent: restaurant_search{"cuisine":"Italian"}
   - slot_was_set:
     - cuisine: Italian
-  - action: ActionSearchRestaurants
+  - action: action_search_restaurants
   - slot_was_set:
     - location: mumbai
 
@@ -112,7 +112,7 @@ stories:
     - cuisine: chinese
   - slot_was_set:
     - location: delhi
-  - action: ActionSearchRestaurants
+  - action: action_search_restaurants
   - slot_was_set:
     - location: delhi
   - intent: affirm
@@ -129,7 +129,7 @@ stories:
   - intent: restaurant_search{"location":"delhi"}
   - slot_was_set:
     - location: delhi
-  - action: ActionSearchRestaurants
+  - action: action_search_restaurants
   - slot_was_set:
     - location: delhi
   - intent: affirm
@@ -143,7 +143,7 @@ stories:
   - slot_was_set:
     - cuisine: italian
     - location: mumbai
-  - action: ActionSearchRestaurants
+  - action: action_search_restaurants
   - slot_was_set:
     - location: mumbai
   - intent: affirm
@@ -160,7 +160,7 @@ stories:
   - intent: restaurant_search{"cuisine":"chinese"}
   - slot_was_set:
     - cuisine: chinese
-  - action: ActionSearchRestaurants
+  - action: action_search_restaurants
   - intent: affirm
   - action: utter_goodbye
   - action: export
